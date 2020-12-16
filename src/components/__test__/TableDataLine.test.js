@@ -9,9 +9,13 @@ describe("Table Data Line component", () => {
   test("should render TableDataLine correctly", () => {
     render(<TableDataLine />);
   });
+  describe("Table Data Line elements", () => {
+    beforeEach(() => {
+      render(<TableDataLine />);
+    });
 
-  test("should render a table row element", () => {
-    render(<TableDataLine />);
-    expect(screen.getByRole("row")).toBeInTheDocument();
+    test("should render a table row element", () => {
+      expect(screen.getByRole("row")).toBeInTheDocument();
+    });
   });
 });
