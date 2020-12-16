@@ -2,7 +2,15 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 
 const TableDataLine = () => {
-  return <tr></tr>;
+  return (
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  );
 };
 
 describe("Table Data Line component", () => {
@@ -16,6 +24,10 @@ describe("Table Data Line component", () => {
 
     test("should render a table row element", () => {
       expect(screen.getByRole("row")).toBeInTheDocument();
+    });
+
+    test("should render 5 table cells", () => {
+      expect(screen.getAllByRole("cell")).toHaveLength(5);
     });
   });
 });
