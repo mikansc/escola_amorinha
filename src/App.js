@@ -2,6 +2,8 @@ import React from "react";
 
 import "./assets/css/style.css";
 import MainPage from "./pages/MainPage";
+import Table from "./components/Table/Table";
+import TableDataLine from "./components/Table/TableDataLine";
 
 function App() {
   return (
@@ -92,35 +94,9 @@ function App() {
       <section className="container m-3 p-2 border">
         <h2 className="h5">Lista de alunos</h2>
         <div className="">
-          <table className="table table-hover table-default">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+          <Table>
+            <TableDataLine />
+          </Table>
         </div>
       </section>
     </MainPage>
