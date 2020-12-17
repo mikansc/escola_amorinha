@@ -5,12 +5,14 @@ const Table = () => {
   return (
     <table>
       <thead data-testid="thead">
-        <th>Nome</th>
-        <th>Data de Nascimento</th>
-        <th>Turma</th>
-        <th>Telefone para Emergências</th>
-        <th>Em caso de emergência avisar</th>
-        <th></th>
+        <tr>
+          <th>Nome</th>
+          <th>Data de Nascimento</th>
+          <th>Turma</th>
+          <th>Telefone para Emergências</th>
+          <th>Em caso de emergência avisar</th>
+          <th></th>
+        </tr>
       </thead>
       <tbody data-testid="tbody"></tbody>
     </table>
@@ -33,6 +35,10 @@ describe("Table component", () => {
 
     test("should render a theady element with testId=thead", () => {
       expect(screen.getByTestId("thead")).toBeInTheDocument();
+    });
+
+    test("should render a table row element", () => {
+      expect(screen.getByRole("row")).toBeInTheDocument();
     });
 
     test("should render 6 <th> elements", () => {
