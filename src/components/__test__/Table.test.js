@@ -33,5 +33,9 @@ describe("Table component", () => {
     test("should render a theady element with testId=thead", () => {
       expect(screen.getByTestId("thead")).toBeInTheDocument();
     });
+
+    test("should render 6 <th> elements", () => {
+      expect(screen.getAllByRole("columnheader")).toHaveLength(6);
+    });
   });
 });
