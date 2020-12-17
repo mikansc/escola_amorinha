@@ -12,6 +12,7 @@ const Table = () => {
         <th>Em caso de emergência avisar</th>
         <th></th>
       </thead>
+      <tbody data-testid="tbody"></tbody>
     </table>
   );
 };
@@ -50,6 +51,10 @@ describe("Table component", () => {
       LABELS.forEach((label) => {
         expect(screen.getByText(label)).toBeInTheDocument();
       });
+    });
+
+    test("should render a tbody element with testId=tbody", () => {
+      expect(screen.getByTestId("tbody")).toBeInTheDocument();
     });
   });
 });
