@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TableDataLine from "../TableDataLine";
+import TableDataLine from "../Table/TableDataLine";
 
 describe("Table Data Line component", () => {
   test("should render TableDataLine correctly", () => {
