@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-const Table = () => {
+const Table = ({ children }) => {
   return (
     <table>
       <thead data-testid="thead">
@@ -14,7 +14,7 @@ const Table = () => {
           <th></th>
         </tr>
       </thead>
-      <tbody data-testid="tbody"></tbody>
+      <tbody data-testid="tbody">{children}</tbody>
     </table>
   );
 };
@@ -22,6 +22,19 @@ const Table = () => {
 describe("Table component", () => {
   test("should render Table component correctly", () => {
     render(<Table />);
+  });
+
+  test("should receibe children props", () => {
+    const CHILD_TEXT = "Hello, world!";
+    const TableWithChild = () => (
+      <Table>
+        <tr>
+          <td>{CHILD_TEXT}</td>
+        </tr>
+      </Table>
+    );
+    render(<TableWithChild />);
+    expect(screen.getByText(CHILD_TEXT)).toBeTruthy();
   });
 
   describe("Table elements", () => {
