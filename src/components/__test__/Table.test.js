@@ -29,5 +29,9 @@ describe("Table component", () => {
     test("should render a table element", () => {
       expect(screen.getByRole("table")).toBeInTheDocument();
     });
+
+    test("should render a theady element with testId=thead", () => {
+      expect(screen.getByTestId("thead")).toBeInTheDocument();
+    });
   });
 });
