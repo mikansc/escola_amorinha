@@ -5,6 +5,7 @@ const Filter = () => {
   return (
     <div>
       <input type="text" placeholder="Buscar aluno pelo nome..." />
+      <button type="button">Buscar</button>
     </div>
   );
 };
@@ -26,6 +27,11 @@ describe("Filter component", () => {
     test("should have a placeholder with text 'buscar aluno pelo nome'", () => {
       const PLACEHOLDER = "Buscar aluno pelo nome...";
       expect(screen.getByPlaceholderText(PLACEHOLDER)).toBeInTheDocument();
+    });
+
+    test("should render a button with type='button' element", () => {
+      expect(screen.getByRole("button")).toBeInTheDocument();
+      expect(screen.getByRole("button").getAttribute("type")).toBe("button");
     });
   });
 });
