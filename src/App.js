@@ -2,6 +2,7 @@ import React from "react";
 
 import "./assets/css/style.css";
 import MainPage from "./pages/MainPage";
+import Filter from "./components/Filter/Filter";
 import Table from "./components/Table/Table";
 import TableDataLine from "./components/Table/TableDataLine";
 
@@ -93,11 +94,10 @@ function App() {
       </section>
       <section className="container m-3 p-2 border">
         <h2 className="h5">Lista de alunos</h2>
-        <div className="">
-          <Table>
-            <TableDataLine />
-          </Table>
-        </div>
+        <Filter />
+        <Table>
+          <TableDataLine />
+        </Table>
       </section>
     </MainPage>
   );
