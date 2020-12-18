@@ -1,14 +1,6 @@
 import React from "react";
+import Filter from "../Filter/Filter";
 const { render, screen } = require("@testing-library/react");
-
-const Filter = () => {
-  return (
-    <div>
-      <input type="text" placeholder="Buscar aluno pelo nome..." />
-      <button type="button">Buscar</button>
-    </div>
-  );
-};
 
 describe("Filter component", () => {
   test("should render a Filter component correctly", () => {
