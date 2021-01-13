@@ -19,7 +19,6 @@ function App() {
         <form>
           <div className="form-row">
             <TextField title="Nome do Aluno" name="student" id="student" />
-
             <DateField title="Data de Nascimento" id="birthdate" />
           </div>
           <div className="form-row">
@@ -28,7 +27,6 @@ function App() {
               name="responsible"
               id="responsible"
             />
-
             <PhoneField title="Telefone do responsável" />
           </div>
           <div className="form-row">
@@ -42,7 +40,6 @@ function App() {
               <option value="2">Avós</option>
               <option value="3">Responsável</option>
             </SelectField>
-
             <PhoneField title="Telefone para emergências" />
             <ToggleField
               title="Possui restrição alimentar"
