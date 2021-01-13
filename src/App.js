@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage";
 import Filter from "./components/Filter/Filter";
 import Table from "./components/Table/Table";
 import TableDataLine from "./components/Table/TableDataLine";
+import DateField from "./components/DateField/DateField";
 
 function App() {
   return (
@@ -18,10 +19,7 @@ function App() {
               <input type="text" className="form-control" id="inputCity" />
             </div>
 
-            <div className="form-group col-md-4">
-              <label htmlFor="inputZip">Data de Nascimento</label>
-              <input type="text" className="form-control" id="inputZip" />
-            </div>
+            <DateField title="Data de Nascimento" id="birthdate" />
           </div>
 
           <div className="form-row">
