@@ -2,9 +2,9 @@
 import React from "react";
 import InputMask from "react-input-mask";
 
-const PhoneField = ({ title = "Data", id, ...props }) => {
+const PhoneField = ({ title = "Data", id, columns = "12", ...props }) => {
   return (
-    <div className="form-group col-md-4">
+    <div className={`form-group col-md-${columns}`}>
       <label htmlFor={id}>{title}</label>
       <InputMask
         {...props}

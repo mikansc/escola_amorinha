@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-const ToggleField = ({ title, id, disabled, ...props }) => {
+const ToggleField = ({ title, id, disabled, columns = "12", ...props }) => {
   return (
-    <div className="form-group col-md-4">
+    <div className={`form-group col-md-${columns}`}>
       <div className="custom-control custom-switch mt-4">
         <input
           type="checkbox"
