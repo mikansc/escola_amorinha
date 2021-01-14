@@ -4,7 +4,7 @@ import React from "react";
 const ToggleField = ({ title, id, disabled, columns = "12", ...props }) => {
   return (
     <div className={`form-group col-md-${columns}`}>
-      <div className="custom-control custom-switch mt-4">
+      <div className="custom-control custom-switch">
         <input
           type="checkbox"
           className="custom-control-input"

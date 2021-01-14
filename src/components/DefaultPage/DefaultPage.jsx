@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-const MainPage = ({ children }) => {
+const DefaultPage = ({ children }) => {
   return (
     <>
       <div className="bg-light">
@@ -17,4 +17,4 @@ const MainPage = ({ children }) => {
   );
 };
 
-export default MainPage;
+export default DefaultPage;

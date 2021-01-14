@@ -1,15 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
-const TableDataLine = () => {
-  return (
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  );
+const TableDataLine = ({ children }) => {
+  return <tr>{children}</tr>;
 };
 
 export default TableDataLine;
