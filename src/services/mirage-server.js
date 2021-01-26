@@ -18,9 +18,16 @@ export function criarServidor({ environment = "test" } = {}) {
     routes() {
       this.urlPrefix = constants.API_URL;
 
-      this.get("/students", (schema) => schema.students.all());
+      this.get("/students", (schema, request) => {
+        const { name } = request.queryParams;
 
-      this.passthrough();
+        if (name) {
+          return schema.students.where((student) => student.name.includes(name))
+            .models;
+        }
+
+        return schema.students.all().models;
+      });
     },
   });
 

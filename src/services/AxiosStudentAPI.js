@@ -15,6 +15,10 @@ class StudentAPI {
       .get("/students")
       .then((response) => response.data);
   }
+
+  find(id) {
+    return axios.get(`/students/${id}`).then((response) => response.data);
+  }
 }
 
 export default new StudentAPI(BASE_URL);

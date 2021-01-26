@@ -19,9 +19,8 @@ const StudentListPage = () => {
   const [students, setStudents] = useState([]);
   useEffect(() => {
     StudentAPI.findAll()
-      .then((res) => {
-        console.log(res);
-        setStudents(res.students);
+      .then((data) => {
+        setStudents(data);
       })
       .catch(console.error);
   }, []);
