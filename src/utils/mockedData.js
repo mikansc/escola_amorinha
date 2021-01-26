@@ -1,4 +1,4 @@
-const schoolchildren = [
+const students = [
   {
     name: "Aluno da Silva",
     birthdate: "2000-01-10",
@@ -39,4 +39,4 @@ const schoolchildren = [
   },
 ];
 
-export default schoolchildren;
+export default students;
