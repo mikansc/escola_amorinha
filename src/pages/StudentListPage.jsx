@@ -3,6 +3,7 @@ import Filter from "../components/Filter/Filter";
 import Table from "../components/Table/Table";
 import TableDataLine from "../components/Table/TableDataLine";
 import Cell from "../components/Table/Cell";
+import { RiDeleteBin2Line, RiEditLine } from "react-icons/ri";
 
 import StudentAPI from "../services/AxiosStudentAPI";
 
@@ -38,7 +39,14 @@ const StudentListPage = () => {
               <Cell>{student.class}</Cell>
               <Cell>{student.emergencyPhone}</Cell>
               <Cell>{student.contactOnEmergency}</Cell>
-              <Cell>Editar Excluir</Cell>
+              <Cell>
+                <button className="btn btn-outline-info">
+                  <RiEditLine />
+                </button>
+                <button className="btn btn-outline-danger ml-2" title="Excluir">
+                  <RiDeleteBin2Line />
+                </button>
+              </Cell>
             </TableDataLine>
           ))}
       </Table>
