@@ -1,18 +1,27 @@
 import React from "react";
 
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import "./assets/css/style.css";
 import DefaultPage from "./components/DefaultPage/DefaultPage";
-
-import schoolchildren from "./utils/mockedData";
-import NewStudentFormPage from "./pages/NewStudentFormPage";
-import StudentListPage from "./pages/StudentListPage";
+import routes from "./routes/routes";
 
 function App() {
   return (
-    <DefaultPage>
-      <NewStudentFormPage />
-      <StudentListPage schoolchildren={schoolchildren} />
-    </DefaultPage>
+    <Router>
+      <DefaultPage>
+        <Switch>
+          {routes.map((route, idx) => (
+            <Route
+              key={idx}
+              path={route.path}
+              component={route.component}
+              exact={route.exact}
+            />
+          ))}
+        </Switch>
+      </DefaultPage>
+    </Router>
   );
 }
 
