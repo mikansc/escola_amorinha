@@ -37,6 +37,24 @@ const students = [
     observations:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae obcaecati architecto, consequuntur eveniet aliquid tempore repellat odit. Mollitia ex error accusantium perferendis repellat, eius rerum similique voluptas eligendi quisquam et laboriosam, dolore impedit quasi incidunt corrupti debitis dolores dolorem atque consequuntur, eum cupiditate excepturi aliquid? Quae illo blanditiis praesentium necessitatibus veniam! Tempore, ipsa impedit voluptates corrupti ipsum nobis necessitatibus blanditiis!",
   },
+  {
+    name: "Fulano Alves de Oliveira",
+    birthdate: "1998-01-25",
+    responsible: "Mario",
+    phone: "(47) 912345678",
+    contactOnEmergency: "Pais",
+    emergencyPhone: "(47) 912345678",
+    hasFoodRestriction: true,
+    foodRestriction: "Alérgico à glútem",
+    authorizeImage: true,
+    authorizedHandlers: [
+      { name: "Pedro", relationship: "pai" },
+      { name: "Mario", relationship: "avô" },
+    ],
+    class: "Ensino Médio I",
+    observations:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae obcaecati architecto, consequuntur eveniet aliquid tempore repellat odit. Mollitia ex error accusantium perferendis repellat, eius rerum similique voluptas eligendi quisquam et laboriosam, dolore impedit quasi incidunt corrupti debitis dolores dolorem atque consequuntur, eum cupiditate excepturi aliquid? Quae illo blanditiis praesentium necessitatibus veniam! Tempore, ipsa impedit voluptates corrupti ipsum nobis necessitatibus blanditiis!",
+  },
 ];
 
 export default students;
