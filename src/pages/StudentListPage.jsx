@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Filter from "../components/Filter/Filter";
 import Table from "../components/Table/Table";
 import TableDataLine from "../components/Table/TableDataLine";
 import Cell from "../components/Table/Cell";
 import { RiDeleteBin2Line, RiEditLine } from "react-icons/ri";
 
-import StudentAPI from "../services/AxiosStudentAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { listStudents } from "../store/Students/actions";
 
 const studentListHeaders = [
   "Nome",
@@ -17,21 +18,25 @@ const studentListHeaders = [
 ];
 
 const StudentListPage = () => {
-  const [students, setStudents] = useState([]);
+  const dispatch = useDispatch();
+  const studentsState = useSelector((state) => state.students);
+  const { isLoading, list: students } = studentsState;
+
   useEffect(() => {
-    StudentAPI.findAll()
-      .then((data) => {
-        setStudents(data);
-      })
-      .catch(console.error);
-  }, []);
+    if (students.length === 0) {
+      dispatch(listStudents());
+    }
+  }, [dispatch]);
 
   return (
     <section className="container m-3 p-2 border">
       <h2 className="h5">Lista de alunos</h2>
       <Filter />
       <Table tableHeaders={studentListHeaders}>
-        {students &&
+        {isLoading ? (
+          <p>carregando...</p>
+        ) : (
+          students &&
           students.map((student) => (
             <TableDataLine key={student.id}>
               <Cell>{student.name}</Cell>
@@ -48,7 +53,8 @@ const StudentListPage = () => {
                 </button>
               </Cell>
             </TableDataLine>
-          ))}
+          ))
+        )}
       </Table>
     </section>
   );
