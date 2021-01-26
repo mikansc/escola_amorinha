@@ -8,12 +8,6 @@ class StudentAPI {
     this.axiosInstance = axios.create({
       baseURL: url,
     });
-    this.axiosInstance.interceptors.response.use(
-      (res) => res,
-      (error) => {
-        throw error;
-      }
-    );
   }
 
   findAll() {
@@ -21,10 +15,6 @@ class StudentAPI {
       .get("/students")
       .then((response) => response.data);
   }
-
-  // findAll() {
-  //   return axios.get("/students").then((response) => response.data);
-  // }
 }
 
 export default new StudentAPI(BASE_URL);

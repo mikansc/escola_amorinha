@@ -4,7 +4,7 @@ import students from "../utils/mockedData";
 import * as constants from "./constants";
 
 export function criarServidor({ environment = "test" } = {}) {
-  const sv = createServer({
+  const server = createServer({
     environment,
 
     models: {
@@ -20,24 +20,9 @@ export function criarServidor({ environment = "test" } = {}) {
 
       this.get("/students", (schema) => schema.students.all());
 
-      // this.post("/students", (schema, request) => {
-      //   const attrs = JSON.parse(request.requestBody);
-      //   return schema.students.create(attrs);
-      // });
-
-      // this.put("/students", (schema, request) => {
-      //   const attrs = JSON.parse(request.requestBody);
-      //   return schema.students.create(attrs);
-      // });
-
-      // this.delete("/students/:id", (schema, request) => {
-      //   const id = request.params.id;
-
-      //   return schema.students.find(id).destroy();
-      // });
       this.passthrough();
     },
   });
 
-  return sv;
+  return server;
 }
