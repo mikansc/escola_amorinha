@@ -8,7 +8,7 @@ import routes from "./routes/routes";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <DefaultPage>
         <Switch>
           {routes.map((route, idx) => (
