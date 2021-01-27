@@ -7,6 +7,7 @@ import { RiDeleteBin2Line, RiEditLine } from "react-icons/ri";
 
 import { useDispatch, useSelector } from "react-redux";
 import { listStudents } from "../store/Students/actions";
+import Button from "../components/Button/Button";
 
 const studentListHeaders = [
   "Nome",
@@ -45,12 +46,12 @@ const StudentListPage = () => {
               <Cell>{student.emergencyPhone}</Cell>
               <Cell>{student.contactOnEmergency}</Cell>
               <Cell>
-                <button className="btn btn-outline-info">
-                  <RiEditLine />
-                </button>
-                <button className="btn btn-outline-danger ml-2" title="Excluir">
+                <Button color="info">
                   <RiDeleteBin2Line />
-                </button>
+                </Button>
+                <Button color="danger">
+                  <RiEditLine />
+                </Button>
               </Cell>
             </TableDataLine>
           ))
