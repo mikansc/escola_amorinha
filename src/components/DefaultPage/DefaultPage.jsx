@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ReactComponent as LogoImg } from "../../assets/img/logo.svg";
 
 const DefaultPage = ({ children }) => {
   return (
@@ -8,6 +9,7 @@ const DefaultPage = ({ children }) => {
         <nav className="navbar navbar-dark bg-secondary">
           <Link to="/" className="navbar-brand">
             Amorinha
+            <LogoImg style={{ width: 20, height: 20, marginLeft: 5 }} />
           </Link>
         </nav>
       </div>
