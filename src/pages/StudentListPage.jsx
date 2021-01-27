@@ -8,6 +8,7 @@ import { RiDeleteBin2Line, RiEditLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { listStudents } from "../store/Students/actions";
 import Button from "../components/Button/Button";
+import useSearch from "../hook/useSearch";
 
 const studentListHeaders = [
   "Nome",
@@ -19,25 +20,35 @@ const studentListHeaders = [
 ];
 
 const StudentListPage = () => {
-  const dispatch = useDispatch();
   const studentsState = useSelector((state) => state.students);
+  const [term, search] = useSearch("");
   const { isLoading, list: students } = studentsState;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (students.length === 0) {
-      dispatch(listStudents());
-    }
-  }, [dispatch]);
+    dispatch(listStudents(term));
+  }, [dispatch, term]);
+
+  const handleFilter = (text) => {
+    search(text);
+  };
 
   return (
     <section className="container m-3 p-2 border">
       <h2 className="h5">Lista de alunos</h2>
-      <Filter />
+      <Filter onFilter={handleFilter} isLoading={isLoading} />
       <Table tableHeaders={studentListHeaders}>
         {isLoading ? (
-          <p>carregando...</p>
+          <tr>
+            <td colSpan={studentListHeaders.length}>carregando...</td>
+          </tr>
+        ) : students.length === 0 ? (
+          <tr>
+            <td colSpan={studentListHeaders.length}>
+              Nenhum aluno encontrado.
+            </td>
+          </tr>
         ) : (
-          students &&
           students.map((student) => (
             <TableDataLine key={student.id}>
               <Cell>{student.name}</Cell>
