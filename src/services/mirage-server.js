@@ -22,8 +22,9 @@ export function criarServidor({ environment = "test" } = {}) {
         const { name } = request.queryParams;
 
         if (name) {
-          return schema.students.where((student) => student.name.includes(name))
-            .models;
+          return schema.students.where((student) =>
+            student.name.toLowerCase().includes(name.toLowerCase())
+          ).models;
         }
 
         return schema.students.all().models;
