@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import InputMask from "react-input-mask";
 

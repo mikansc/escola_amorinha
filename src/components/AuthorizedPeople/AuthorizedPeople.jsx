@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import FormRow from "../FormRow/FormRow";
 import SelectField from "../SelectField/SelectField";

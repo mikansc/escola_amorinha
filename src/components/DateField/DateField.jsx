@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 
 const DateField = ({ title = "Data", id, columns = "12", ...props }) => {
