@@ -10,9 +10,17 @@ class StudentAPI {
     });
   }
 
-  findAll() {
+  findAll(term) {
+    const config = term
+      ? {
+          params: {
+            name: term,
+          },
+        }
+      : null;
+
     return this.axiosInstance
-      .get("/students")
+      .get("/students", config)
       .then((response) => response.data);
   }
 
