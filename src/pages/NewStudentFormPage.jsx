@@ -37,7 +37,7 @@ const NewStudentFormPage = () => {
             <PhoneField title="Telefone do responsável" columns="4" />
           </FormRow>
 
-          <FormRow>
+          <FormRow justify="end">
             <SelectField
               title="Em caso de emergência, avisar"
               name="emergency"
