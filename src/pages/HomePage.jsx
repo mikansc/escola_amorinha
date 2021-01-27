@@ -1,11 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ReactComponent as NewStudentImg } from "../assets/img/new-student.svg";
+import { ReactComponent as StudentListImg } from "../assets/img/student-list.svg";
 
 const HomePage = () => {
   return (
-    <div>
-      <Link to="/estudantes">Lista de estudantes</Link>
-      <Link to="/estudantes/novo">Novo estudante</Link>
+    <div className="row">
+      <div className="col">
+        <Link to="/estudantes/novo">
+          <div className="card border-primary mb-3">
+            <div className="card-body">
+              <p className="card-text text-center">
+                <div className="img-fluid ">
+                  <NewStudentImg style={{ width: 200, height: 200 }} />
+                </div>
+                <h4 className="card-title">Novo estudante</h4>
+              </p>
+            </div>
+          </div>
+        </Link>
+      </div>
+      <div className="col">
+        <Link to="/estudantes/">
+          <div className="card border-primary mb-3">
+            <div className="card-body">
+              <p className="card-text text-center">
+                <div className="img-fluid">
+                  <StudentListImg style={{ width: 200, height: 200 }} />
+                </div>
+                <h4 className="card-title">Lista de estudantes</h4>
+              </p>
+            </div>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
