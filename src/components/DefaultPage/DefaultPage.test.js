@@ -1,27 +1,27 @@
 import React from "react";
-import MainPage from "./MainPage";
+import DefaultPage from "./DefaultPage";
 const { render, screen } = require("@testing-library/react");
 
 describe("Main page", () => {
   test("should render main page correctly", () => {
-    render(<MainPage />);
+    render(<DefaultPage />);
   });
 
   test("should render a navigation tag inside main page", () => {
-    render(<MainPage />);
+    render(<DefaultPage />);
     screen.getByRole("navigation");
   });
 
   test("should render a main tag inside main page", () => {
-    render(<MainPage />);
+    render(<DefaultPage />);
     screen.getByRole("main");
   });
 
   test("should receive children components inside", () => {
     const Component = () => (
-      <MainPage>
+      <DefaultPage>
         <p>children</p>
-      </MainPage>
+      </DefaultPage>
     );
     render(<Component />);
     expect(screen.getByText("children")).toBeTruthy();
