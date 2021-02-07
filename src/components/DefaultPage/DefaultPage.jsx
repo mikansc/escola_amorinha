@@ -15,7 +15,7 @@ const DefaultPage = ({ children }) => {
       </div>
       <main className="container mt-4 p-4 border">
         <h1 className="h4">Sistema de controle de alunos Amorinha</h1>
-        <section>{children}</section>
+        {children}
       </main>
     </>
   );
