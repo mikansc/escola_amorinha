@@ -32,15 +32,18 @@ const NewStudentFormPage = () => {
     foodRestriction: "",
     authorizeImage: "",
     authorizedHandlers: [],
-    class: "",
+    studentClass: "",
     observations: "",
   });
 
   const handleAddHandler = () => {
-    setHandlers([...handlers, { authorizedName, authorizedRelationship }]);
+    setHandlers([
+      ...handlers,
+      { name: authorizedName, relationship: authorizedRelationship },
+    ]);
     setFieldValue("authorizedHandlers", [
       ...handlers,
-      { authorizedName, authorizedRelationship },
+      { name: authorizedName, relationship: authorizedRelationship },
     ]);
     setAuthorizedRelationship("");
     setAuthorizedName("");
@@ -166,8 +169,8 @@ const NewStudentFormPage = () => {
           <Table tableHeaders={["Nome", "Parentesco", "Opções"]}>
             {handlers?.map((entry, idx) => (
               <TableDataLine key={idx}>
-                <Cell width="50%">{entry.authorizedName}</Cell>
-                <Cell width="30%">{entry.authorizedRelationship}</Cell>
+                <Cell width="50%">{entry.name}</Cell>
+                <Cell width="30%">{entry.relationship}</Cell>
                 <Cell width="20%">
                   <Button color="info">
                     <RiDeleteBin2Line />
@@ -184,11 +187,11 @@ const NewStudentFormPage = () => {
         <FormRow>
           <SelectField
             title="Turma"
-            id="class"
+            id="studentClass"
             options={["Ensino Médio 1", "Ensino Médio 2", "Ensino Médio 3"]}
             columns="4"
-            value={data.class}
-            onChange={(e) => setFieldValue("class", e.target.value)}
+            value={data.studentClass}
+            onChange={(e) => setFieldValue("studentClass", e.target.value)}
           />
         </FormRow>
       </fieldset>
