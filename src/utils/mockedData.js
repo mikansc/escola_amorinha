@@ -10,11 +10,11 @@ const students = [
     foodRestriction: "Não possui nenhuma restrição",
     authorizeImage: true,
     authorizedHandlers: [
-      { name: "João", relationship: "tio" },
-      { name: "Maria", relationship: "mãe" },
-      { name: "Fernando", relationship: "pai" },
+      { name: "João", relationship: "Tios" },
+      { name: "Maria", relationship: "Pais" },
+      { name: "Fernando", relationship: "Pais" },
     ],
-    class: "Ensino Médio I",
+    studentClass: "Ensino Médio 3",
     observations:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae obcaecati architecto, consequuntur eveniet aliquid tempore repellat odit. Mollitia ex error accusantium perferendis repellat, eius rerum similique voluptas eligendi quisquam et laboriosam, dolore impedit quasi incidunt corrupti debitis dolores dolorem atque consequuntur, eum cupiditate excepturi aliquid? Quae illo blanditiis praesentium necessitatibus veniam! Tempore, ipsa impedit voluptates corrupti ipsum nobis necessitatibus blanditiis!",
   },
@@ -29,11 +29,11 @@ const students = [
     foodRestriction: "Não possui nenhuma restrição",
     authorizeImage: true,
     authorizedHandlers: [
-      { name: "Luiz", relationship: "tio" },
-      { name: "Claudia", relationship: "mãe" },
-      { name: "José", relationship: "pai" },
+      { name: "Luiz", relationship: "Tios" },
+      { name: "Claudia", relationship: "Mãe" },
+      { name: "José", relationship: "Pais" },
     ],
-    class: "Ensino Médio II",
+    studentClass: "Ensino Médio 2",
     observations:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae obcaecati architecto, consequuntur eveniet aliquid tempore repellat odit. Mollitia ex error accusantium perferendis repellat, eius rerum similique voluptas eligendi quisquam et laboriosam, dolore impedit quasi incidunt corrupti debitis dolores dolorem atque consequuntur, eum cupiditate excepturi aliquid? Quae illo blanditiis praesentium necessitatibus veniam! Tempore, ipsa impedit voluptates corrupti ipsum nobis necessitatibus blanditiis!",
   },
@@ -48,10 +48,10 @@ const students = [
     foodRestriction: "Alérgico à glútem",
     authorizeImage: true,
     authorizedHandlers: [
-      { name: "Pedro", relationship: "pai" },
-      { name: "Mario", relationship: "avô" },
+      { name: "Pedro", relationship: "Pais" },
+      { name: "Mario", relationship: "Avós" },
     ],
-    class: "Ensino Médio I",
+    studentClass: "Ensino Médio 1",
     observations:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae obcaecati architecto, consequuntur eveniet aliquid tempore repellat odit. Mollitia ex error accusantium perferendis repellat, eius rerum similique voluptas eligendi quisquam et laboriosam, dolore impedit quasi incidunt corrupti debitis dolores dolorem atque consequuntur, eum cupiditate excepturi aliquid? Quae illo blanditiis praesentium necessitatibus veniam! Tempore, ipsa impedit voluptates corrupti ipsum nobis necessitatibus blanditiis!",
   },
