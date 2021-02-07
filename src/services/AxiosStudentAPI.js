@@ -31,6 +31,14 @@ class StudentAPI {
   create(studentObj) {
     return this.axiosInstance.post("/students", studentObj);
   }
+
+  update(studentObj) {
+    return this.axiosInstance.put(`/students/${studentObj.id}`, studentObj);
+  }
+
+  delete(id) {
+    return this.axiosInstance.delete(`/students/${id}`);
+  }
 }
 
 export default new StudentAPI(BASE_URL);
