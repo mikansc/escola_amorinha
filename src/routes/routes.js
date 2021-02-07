@@ -1,6 +1,7 @@
-import NewStudentFormPage from "../pages/NewStudentFormPage";
 import HomePage from "../pages/HomePage";
 import StudentListPage from "../pages/StudentListPage";
+import NewStudentFormPage from "../pages/NewStudentFormPage";
+import EditStudentFormPage from "../pages/EditStudentFormPage";
 
 const routes = [
   {
@@ -16,6 +17,11 @@ const routes = [
   {
     component: NewStudentFormPage,
     path: "/estudantes/novo",
+    exact: true,
+  },
+  {
+    component: EditStudentFormPage,
+    path: "/estudantes/:id/editar",
   },
 ];
 

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { listStudents } from "../store/Students/actions";
 import Button from "../components/Button/Button";
 import useSearch from "../hook/useSearch";
+import { useHistory } from "react-router-dom";
 
 const studentListHeaders = [
   "Nome",
@@ -24,6 +25,7 @@ const StudentListPage = () => {
   const [term, search] = useSearch("");
   const { isLoading, list: students } = studentsState;
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(listStudents(term));
@@ -31,6 +33,10 @@ const StudentListPage = () => {
 
   const handleFilter = (text) => {
     search(text);
+  };
+
+  const handleEditStudent = (student) => {
+    history.push(`/estudantes/${student.id}/editar`, student);
   };
 
   return (
@@ -60,7 +66,10 @@ const StudentListPage = () => {
                 <Button color="info">
                   <RiDeleteBin2Line />
                 </Button>
-                <Button color="danger">
+                <Button
+                  color="danger"
+                  onClick={() => handleEditStudent(student)}
+                >
                   <RiEditLine />
                 </Button>
               </Cell>
