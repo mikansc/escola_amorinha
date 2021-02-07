@@ -7,6 +7,7 @@ const PhoneField = ({ title = "Data", id, columns = "12", ...props }) => {
       <label htmlFor={id}>{title}</label>
       <InputMask
         {...props}
+        name={id}
         className="form-control"
         mask="(99) 999999999"
         maskChar=" "

@@ -4,7 +4,7 @@ const SelectField = ({ title, id, options, columns = "12", ...props }) => {
   return (
     <div className={`form-group col-md-${columns}`}>
       <label htmlFor={id}>{title}</label>
-      <select className="custom-select" {...props}>
+      <select name={id} className="custom-select" {...props}>
         {options &&
           options.map((option) => (
             <option key={option} value={option}>

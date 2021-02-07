@@ -1,7 +1,7 @@
 import React from "react";
 
-const Cell = ({ children }) => {
-  return <td>{children}</td>;
+const Cell = ({ width = "0", children }) => {
+  return <td width={width}>{children}</td>;
 };
 
 export default Cell;

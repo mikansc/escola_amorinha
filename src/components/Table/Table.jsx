@@ -2,7 +2,7 @@ import React from "react";
 
 const Table = ({ children, tableHeaders }) => {
   return (
-    <table className="table table-hover table-default">
+    <table className="table table-hover table-default" width="100%">
       <thead data-testid="thead">
         <tr>
           {tableHeaders &&
