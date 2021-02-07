@@ -10,12 +10,12 @@ const HomePage = () => {
         <Link to="/estudantes/novo">
           <div className="card mb-3">
             <div className="card-body">
-              <p className="card-text text-center">
+              <div className="card-text text-center">
                 <div className="img-fluid ">
                   <NewStudentImg style={{ width: 200, height: 200 }} />
                 </div>
                 <h4 className="card-title">Novo estudante</h4>
-              </p>
+              </div>
             </div>
           </div>
         </Link>
@@ -24,12 +24,12 @@ const HomePage = () => {
         <Link to="/estudantes/">
           <div className="card mb-3">
             <div className="card-body">
-              <p className="card-text text-center">
+              <div className="card-text text-center">
                 <div className="img-fluid">
                   <StudentListImg style={{ width: 200, height: 200 }} />
                 </div>
                 <h4 className="card-title">Lista de estudantes</h4>
-              </p>
+              </div>
             </div>
           </div>
         </Link>
