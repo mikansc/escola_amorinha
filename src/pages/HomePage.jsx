@@ -8,7 +8,7 @@ const HomePage = () => {
     <div className="row">
       <div className="col">
         <Link to="/estudantes/novo">
-          <div className="card border-primary mb-3">
+          <div className="card mb-3">
             <div className="card-body">
               <p className="card-text text-center">
                 <div className="img-fluid ">
@@ -22,7 +22,7 @@ const HomePage = () => {
       </div>
       <div className="col">
         <Link to="/estudantes/">
-          <div className="card border-primary mb-3">
+          <div className="card mb-3">
             <div className="card-body">
               <p className="card-text text-center">
                 <div className="img-fluid">
