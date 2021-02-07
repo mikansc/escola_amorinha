@@ -42,6 +42,7 @@ export function criarServidor({ environment = "test" } = {}) {
       });
 
       this.delete("/students/:id", (schema, request) => {
+        console.log(request.params.id);
         const { id } = request.params;
         return schema.students.find(id).destroy();
       });

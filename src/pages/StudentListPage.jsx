@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
+import { toast } from "react-toastify";
 import Filter from "../components/Filter/Filter";
 import Table from "../components/Table/Table";
 import TableDataLine from "../components/Table/TableDataLine";
@@ -10,6 +12,7 @@ import { listStudents } from "../store/Students/actions";
 import Button from "../components/Button/Button";
 import useSearch from "../hook/useSearch";
 import { useHistory } from "react-router-dom";
+import AxiosStudentAPI from "../services/AxiosStudentAPI";
 
 const studentListHeaders = [
   "Nome",
@@ -39,6 +42,20 @@ const StudentListPage = () => {
     history.push(`/estudantes/${student.id}/editar`, student);
   };
 
+  const handleDeleteStudent = (id) => {
+    console.log("Id do estudante:", id);
+    (async function () {
+      await AxiosStudentAPI.delete(id)
+        .then(() => {
+          toast.success("Estudante deletado com sucesso!");
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Erro ao deletar o estudante!");
+        });
+    })();
+  };
+
   return (
     <section className="container m-3 p-2 border">
       <h2 className="h5">Lista de alunos</h2>
@@ -63,7 +80,10 @@ const StudentListPage = () => {
               <Cell>{student.emergencyPhone}</Cell>
               <Cell>{student.contactOnEmergency}</Cell>
               <Cell>
-                <Button color="info">
+                <Button
+                  color="info"
+                  onClick={() => handleDeleteStudent(student.id)}
+                >
                   <RiDeleteBin2Line />
                 </Button>
                 <Button
