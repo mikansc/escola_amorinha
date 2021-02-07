@@ -29,6 +29,22 @@ export function criarServidor({ environment = "test" } = {}) {
 
         return schema.students.all().models;
       });
+
+      this.post("/students", (schema, request) => {
+        const data = JSON.parse(request.requestBody);
+        return schema.students.create(data);
+      });
+
+      // this.put("/students/:id", (schema, request) => {
+      //   const { id } = request.params;
+      //   const data = JSON.parse(request.requestBody);
+      //   return schema.students.find(id).update(data);
+      // });
+
+      // this.delete("/students/:id", (schema, request) => {
+      //   const { id } = request.params;
+      //   return schema.students.find(id).destroy();
+      // });
     },
   });
 

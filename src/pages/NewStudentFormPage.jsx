@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { RiDeleteBin2Line } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 import useForm from "../hook/useForm";
 import DateField from "../components/DateField/DateField";
@@ -12,12 +13,15 @@ import FormRow from "../components/FormRow/FormRow";
 import Table from "../components/Table/Table";
 import TableDataLine from "../components/Table/TableDataLine";
 import Cell from "../components/Table/Cell";
+import AxiosStudentAPI from "../services/AxiosStudentAPI";
+import { useHistory } from "react-router-dom";
 
 const NewStudentFormPage = () => {
+  const history = useHistory();
   const [handlers, setHandlers] = useState([]);
   const [authorizedName, setAuthorizedName] = useState("");
   const [authorizedRelationship, setAuthorizedRelationship] = useState("Pais");
-  const [field, setFieldValue] = useForm({
+  const [data, setFieldValue] = useForm({
     name: "",
     birthdate: "",
     responsible: "",
@@ -43,7 +47,18 @@ const NewStudentFormPage = () => {
   };
 
   const handleSubmit = () => {
-    console.log(field);
+    async function postData() {
+      await AxiosStudentAPI.create(data)
+        .then(() => {
+          toast.success("Aluno cadastrado com sucesso!");
+          history.replace("/");
+        })
+        .catch((err) => {
+          console.dir(err);
+          toast.error("Verifique os dados e tente novamente");
+        });
+    }
+    postData();
   };
 
   return (
@@ -55,14 +70,14 @@ const NewStudentFormPage = () => {
             title="Nome do Aluno"
             id="name"
             columns="8"
-            value={field.name}
+            value={data.name}
             onChange={(e) => setFieldValue("name", e.target.value)}
           />
           <DateField
             title="Data de Nascimento"
             id="birthdate"
             columns="4"
-            value={field.birthdate}
+            value={data.birthdate}
             onChange={(e) => setFieldValue("birthdate", e.target.value)}
           />
         </FormRow>
@@ -72,14 +87,14 @@ const NewStudentFormPage = () => {
             title="Responsável"
             id="responsible"
             columns="8"
-            value={field.responsible}
+            value={data.responsible}
             onChange={(e) => setFieldValue("responsible", e.target.value)}
           />
           <PhoneField
             title="Telefone do responsável"
             id="phone"
             columns="4"
-            value={field.phone}
+            value={data.phone}
             onChange={(e) => setFieldValue("phone", e.target.value)}
           />
         </FormRow>
@@ -90,7 +105,7 @@ const NewStudentFormPage = () => {
             id="contactOnEmergency"
             columns="4"
             options={["Pais", "Tios", "Avós", "Responsável"]}
-            value={field.contactOnEmergency}
+            value={data.contactOnEmergency}
             onChange={(e) =>
               setFieldValue("contactOnEmergency", e.target.value)
             }
@@ -99,7 +114,7 @@ const NewStudentFormPage = () => {
             title="Telefone para emergências"
             id="emergencyPhone"
             columns="4"
-            value={field.emergencyPhone}
+            value={data.emergencyPhone}
             onChange={(e) => setFieldValue("emergencyPhone", e.target.value)}
           />
         </FormRow>
@@ -112,7 +127,7 @@ const NewStudentFormPage = () => {
             title="Possui restrição alimentar"
             id="hasFoodRestriction"
             columns="4"
-            value={field.hasFoodRestriction}
+            value={data.hasFoodRestriction}
             onChange={(e) =>
               setFieldValue("hasFoodRestriction", e.target.checked)
             }
@@ -121,7 +136,7 @@ const NewStudentFormPage = () => {
             title="Descrição da restrição alimentar"
             id="foodRestriction"
             columns="8"
-            value={field.foodRestriction}
+            value={data.foodRestriction}
             onChange={(e) => setFieldValue("foodRestriction", e.target.value)}
           />
         </FormRow>
@@ -172,7 +187,7 @@ const NewStudentFormPage = () => {
             id="class"
             options={["Ensino Médio 1", "Ensino Médio 2", "Ensino Médio 3"]}
             columns="4"
-            value={field.class}
+            value={data.class}
             onChange={(e) => setFieldValue("class", e.target.value)}
           />
         </FormRow>
@@ -185,14 +200,14 @@ const NewStudentFormPage = () => {
             title="Autoriza uso de imagem e vídeo para eventos da escola"
             id="authorizeImage"
             columns="6"
-            value={field.authorizeImage}
+            value={data.authorizeImage}
             onChange={(e) => setFieldValue("authorizeImage", e.target.checked)}
           />
           <TextField
             title="Observações"
             id="observations"
             columns="6"
-            value={field.observations}
+            value={data.observations}
             onChange={(e) => setFieldValue("observations", e.target.value)}
           />
         </FormRow>
